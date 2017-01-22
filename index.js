@@ -3,6 +3,7 @@
 let WebSocketServer = require('ws').Server
 let port = process.env.PORT || 3001
 let wsServer = new WebSocketServer({ port: port })
+console.log(wsServer)
 console.log(`websocket server start. port=${port}`)
 
 wsServer.on('connection', ws => {

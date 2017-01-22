@@ -1,17 +1,18 @@
 'use strict'
 
 const express = require('express')
+const http = require("http")
 const SocketServer = require('ws').Server
-const path = require('path')
+const PORT = process.env.PORT || 3001
 
-const PORT = process.env.PORT || 3000
-const INDEX = path.join(__dirname, 'index.html')
+const app = express()
+app.use(express.static(__dirname + '/'))
 
-const server = express()
-  .use((req, res) => res.sendFile(INDEX) )
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+const server = http.createServer(app)
+server.listen(PORT)
 
 const wss = new SocketServer({ server })
+console.log(`websocket server start. port=${PORT}`)
 
 wss.on('connection', (ws) => {
   console.log('Client connected')

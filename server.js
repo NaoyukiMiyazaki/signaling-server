@@ -12,7 +12,7 @@ const server = http.createServer(app)
 server.listen(PORT)
 
 const wss = new SocketServer({ server })
-console.log(`websocket server start. port=${PORT}`)
+console.log('websocket server start')
 
 wss.on('connection', (ws) => {
   console.log('Client connected')

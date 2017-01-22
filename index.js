@@ -1,8 +1,8 @@
 'strict mode'
 
-let WebSocketServer = require('ws').Server
-let port = process.env.PORT || 3001
-let wsServer = new WebSocketServer({ port: port })
+var WebSocketServer = require('ws').Server
+var port = process.env.PORT || 3001
+var wsServer = new WebSocketServer({ port: port })
 console.log(`websocket server start. port=${port}`)
 
 wsServer.on('connection', ws => {

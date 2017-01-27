@@ -18,11 +18,11 @@ wss.on('connection', (ws) => {
   console.log('Client connected')
   ws.on('message', message => {
     wss.clients.forEach(client => {
-      if (isSame(ws, client)) {
-        console.log('- skip sender -')
-      } else {
+      // if (isSame(ws, client)) {
+      //   console.log('- skip sender -')
+      // } else {
         client.send(message)
-      }
+      // }
     })
   })
   ws.on('close', () => console.log('Client disconnected'))

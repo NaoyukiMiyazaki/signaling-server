@@ -1,7 +1,7 @@
 'use strict'
 
 const express = require('express')
-const http = require("http")
+const http = require('http')
 const SocketServer = require('ws').Server
 const PORT = process.env.PORT || 3001
 
@@ -14,7 +14,7 @@ server.listen(PORT)
 const wss = new SocketServer({ server })
 console.log('websocket server start')
 
-wss.on('connection', (ws) => {
+wss.on('connection', ws => {
   console.log('Client connected')
   ws.on('message', message => {
     wss.clients.forEach(client => {
@@ -30,5 +30,5 @@ wss.on('connection', (ws) => {
 
 function isSame(ws1, ws2) {
   // -- compare object --
-  return (ws1 === ws2);
+  return ws1 === ws2
 }

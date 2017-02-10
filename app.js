@@ -10,7 +10,8 @@
     alert('websocketのエラーが発生しました。')
   }
   ws.onmessage = () => {
-    alert('メッセージを受け取りました。')
+    responsiveVoice.speak('来客です。', 'Japanese Female')
+    // alert('メッセージを受け取りました。')
   }
 
   const callBtn = document.getElementById('call')
